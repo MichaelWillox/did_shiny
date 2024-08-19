@@ -12,7 +12,7 @@ library(fixest)
 library(did)
 library(bacondecomp)
 
-source("https://raw.githubusercontent.com/kylebutts/templates/master/ggplot_theme/theme_kyle.R")
+#source("https://raw.githubusercontent.com/kylebutts/templates/master/ggplot_theme/theme_kyle.R")
 
 
 responsive_col <- function(xs, ..., sm = xs, md = sm, lg = md, xl = lg, xs_offset = 0, sm_offset = 0, md_offset = 0, lg_offset = 0, xl_offset = 0){
@@ -311,7 +311,7 @@ server <- function(input, output, session) {
 			geom_line(data = df_avg, mapping = aes(y = dep_var, x = year, color = group), size = 1.5) +
 			geom_vline(xintercept = input$g1 - 0.5, linetype = "dashed") + 
 			geom_vline(xintercept = input$g2 - 0.5, linetype = "dashed") +
-			theme_kyle(base_size = 16, title_pos = "left") +
+			theme_minimal(base_size = 16) + # , title_pos = "left"
 			theme(legend.position = "bottom") +
 			labs(y = "Outcome", x = "Year", title = "Data-Generating Process", color = NULL) + 
 			scale_y_continuous(expand = expansion(add = .5)) + 
@@ -372,7 +372,7 @@ server <- function(input, output, session) {
 			labs(y = "Outcome", x = "Year", color = NULL, linetype = NULL, title = title, subtitle = subtitle) + 
 			scale_y_continuous(expand = expansion(add = .5)) + 
 			scale_color_manual(values = c("Treat Group" = "#d2382c", "Control Group" = "#497eb3")) + 
-			theme_kyle(base_size = 16, title_pos = "left") +
+			theme_minimal(base_size = 16) + # , title_pos = "left"
 			theme(
 				legend.position = "bottom",
 				plot.title = ggtext::element_markdown(face = "plain", lineheight = 1.2),

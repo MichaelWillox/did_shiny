@@ -11,7 +11,7 @@ library(tidyverse)
 library(fixest)
 library(did)
 
-source("https://raw.githubusercontent.com/kylebutts/templates/master/ggplot_theme/theme_kyle.R")
+#source("https://raw.githubusercontent.com/kylebutts/templates/master/ggplot_theme/theme_kyle.R")
 
 ui <- fluidPage(
 	theme = bslib::bs_theme(bootswatch = "flatly"),
@@ -220,7 +220,7 @@ server <- function(input, output, session) {
 			geom_vline(xintercept = input$g1 - 0.5, linetype = "dashed") + 
 			geom_vline(xintercept = input$g2 - 0.5, linetype = "dashed") +
 			{if(input$is_treated3) geom_vline(xintercept = input$g3 - 0.5, linetype = "dashed")} +
-			theme_kyle(base_size = 24) +
+			theme_minimal(base_size = 24) +
 			theme(legend.position = "bottom") +
 			labs(y = "Outcome", x = "Year", color = "Treatment Cohort") + 
 			scale_y_continuous(expand = expansion(add = .5)) + 
